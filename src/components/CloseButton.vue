@@ -1,6 +1,6 @@
 <template>
     <button class="close-btn">
-        x
+        ✕
     </button>
 </template>
 
