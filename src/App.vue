@@ -3,14 +3,11 @@
     <h1>Note App</h1>
 
     <div class="notes">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card title="Armenia" />
+      <Card title="Hayastan" />
     </div>
-    <AddButton/>
+    <AddButton @click="togglePopup" />
+    <AddNewNote v-if="isVisible" @onClose="togglePopup"/>
   </main>
 
 </template>
@@ -18,6 +15,16 @@
 <script setup>
 import Card from './components/Card.vue'
 import AddButton from './components/AddButton.vue'
+import AddNewNote from './components/AddNewNote.vue';
+import { ref } from 'vue';
+
+const isVisible = ref(false)
+
+const togglePopup = () => {
+  isVisible.value = !isVisible.value
+}
+
+
 
 </script>
 
@@ -48,7 +55,7 @@ h1 {
   padding: 24px;
 }
 
-.notes{
+.notes {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
